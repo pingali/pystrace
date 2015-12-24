@@ -35,12 +35,11 @@
 # Contributor(s):
 #   Peter Macko (http://eecs.harvard.edu/~pmacko)
 #
+from __future__ import print_function
 
 import re
 import sys
-
-import strace_utils
-
+from ..pystrace import strace_utils
 
 #
 # Initialize regular expressions
@@ -202,8 +201,8 @@ class StraceInputStream:
 				elif c in [' ', '\t']:
 					continue
 				else:
-					print "C:" + current_arg
-					print arguments
+					print("C:" + current_arg)
+					print(arguments)
 					raise Exception(("'%s' found where comma expected; " \
 							+ "offending string: %s") % (c, arguments_str))
 				continue
